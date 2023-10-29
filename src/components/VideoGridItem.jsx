@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const VideoGridItem = ({ video }) => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
@@ -9,8 +10,8 @@ const VideoGridItem = ({ video }) => {
       onMouseEnter={() => setIsVideoPlaying(true)}
       onMouseLeave={() => setIsVideoPlaying(false)}
     >
-      <a
-        href={`/video/${video?.videoId || video?.id.videoId}`}
+      <Link
+        to={`/video/${video?.videoId || video?.id.videoId}`}
         className="relative aspect-video"
       >
         <img
@@ -26,7 +27,7 @@ const VideoGridItem = ({ video }) => {
         <div className="absolute bottom-1 right-1 bg-neutral-800 text-neutral-200 text-sm px-0.5 rounded">
           {video?.lengthText}
         </div>
-      </a>
+      </Link>
       <div className="flex gap-2">
         {/* <a
           href={`/channel/@${video?.channelId || video?.snippet?.channelId}`}
@@ -35,18 +36,18 @@ const VideoGridItem = ({ video }) => {
           <img src="" alt="profile" className="w-12 h-12 rounded-full" />
         </a> */}
         <div className="flex flex-col">
-          <a
-            href={`/video/${video?.videoId || video?.id.videoId}`}
+          <Link
+            to={`/video/${video?.videoId || video?.id.videoId}`}
             className="font-bold"
           >
             {video?.title || video?.snippet?.title.slice(0, 60)}
-          </a>
-          <a
-            href={`/channel/@${video?.channelId || video?.id.videoId}`}
+          </Link>
+          <Link
+            to={`/channel/@${video?.channelId || video?.id.videoId}`}
             className="text-neutral-500 text-sm"
           >
             {video?.channelName || video?.snippet?.channelTitle}
-          </a>
+          </Link>
           <div className="text-neutral-500 text-sm">
             {`${video?.viewCountText || ''} • ${
               video?.publishedTimeText || ''

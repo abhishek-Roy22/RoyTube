@@ -2,7 +2,7 @@ import { ArrowLeft, Bell, Menu, Mic, Search, Upload, User } from 'lucide-react';
 import Logo from '../assets/youtubeLogo.png';
 import Button from '../components/Button';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const PageHeader = () => {
   const [showFullWidthSearch, setShowFullWidthSearch] = useState(false);
@@ -17,8 +17,6 @@ const PageHeader = () => {
       navigate(`/search/${searchTerm}`);
     }
   };
-
-  console.log(searchTerm);
 
   return (
     <div className="flex gap-10 lg:gap-20 justify-between pt-2 mb-6 lg:mx-4 sticky top-0 bg-white z-50 pb-2">
@@ -105,9 +103,9 @@ export function PageHeaderFirstSectin({ hidden = false }) {
       >
         <Menu />
       </button>
-      <a href="/">
+      <Link to="/">
         <img src={Logo} alt="logo" className="h-6" />
-      </a>
+      </Link>
     </div>
   );
 }
