@@ -37,7 +37,8 @@ const VideoDetail = () => {
             <ReactPlayer
               url={`https://www.youtube.com/watch?v=${id}`}
               controls
-              className="react-player bg-cover rounded-lg"
+              className="react-player"
+              width={'100%'}
             />
           </div>
           <div className="flex items-center justify-between">

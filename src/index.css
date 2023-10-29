@@ -23,8 +23,11 @@
 }
 
 .react-player {
-  min-width: 100% !important;
-  width: 100% !important;
-  min-height: 80vh !important;
-  height: 80vh !important;
+  height: 77vh !important;
+}
+
+@media screen and (max-width: 600px) {
+  .react-player {
+    height: 45vh !important;
+  }
 }
