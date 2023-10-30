@@ -43,7 +43,7 @@ const VideoGridItem = ({ video }) => {
             {video?.title || video?.snippet?.title.slice(0, 60)}
           </Link>
           <Link
-            to={`/channel/@${video?.channelId || video?.id.videoId}`}
+            to={`/channel/${video?.channelId || video?.id.videoId}`}
             className="text-neutral-500 text-sm"
           >
             {video?.channelName || video?.snippet?.channelTitle}
