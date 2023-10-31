@@ -122,7 +122,7 @@ export default Sidebar;
 function SmallSidebarItem({ Icon, title, url }) {
   return (
     <Link
-      to={url}
+      to={'/'}
       className="py-4 px-1 flex flex-col items-center rounded-lg gap-1 hover:bg-neutral-300  w-10 h-10 justify-center p-2.5 transition-all duration-75 ease-in-out"
     >
       <Icon className="w-6 h-6" />
@@ -164,7 +164,7 @@ function LargeSidebarSection({
 function LargeSidebarItem({ Icon, title, url, isActive = false }) {
   return (
     <Link
-      to={url}
+      to={'/'}
       className={`w-full flex items-center rounded-lg gap-4 p-3 hover:bg-neutral-300 transition-all duration-75 ease-in-out ${
         isActive ? 'font-bold bg-neutral-100 hover:bg-neutral-300' : undefined
       }`}
