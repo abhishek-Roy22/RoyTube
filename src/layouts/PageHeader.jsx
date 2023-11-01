@@ -1,14 +1,25 @@
-import { ArrowLeft, Bell, Menu, Mic, Search, Upload, User } from 'lucide-react';
+import {
+  ArrowLeft,
+  Bell,
+  Menu,
+  Mic,
+  Search,
+  Sun,
+  Upload,
+  User,
+} from 'lucide-react';
 import Logo from '../assets/youtubeLogo.png';
 import Button from '../components/Button';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTheme } from '../context/ThemeContext';
 
 const PageHeader = () => {
   const [showFullWidthSearch, setShowFullWidthSearch] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
 
   const navigate = useNavigate();
+  const { toggleTheme } = useTheme();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,7 +30,7 @@ const PageHeader = () => {
   };
 
   return (
-    <div className="flex gap-10 lg:gap-20 justify-between pt-2 mb-6 lg:mx-4 sticky top-0 bg-white z-50 pb-2">
+    <div className="flex gap-10 lg:gap-20 justify-between pt-2 pb-2">
       <PageHeaderFirstSectin hidden={showFullWidthSearch} />
 
       <form
@@ -43,7 +54,7 @@ const PageHeader = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
             type="search"
             placeholder="Search"
-            className="rounded-l-full border border-neutral-400 shadow-inner shadow-neutral-200 py-1 px-4 text-lg w-full focus:border-blue-500 outline-none"
+            className="rounded-l-full border bg-transparent border-neutral-400 shadow-inner shadow-neutral-200 dark:shadow-none py-1 px-4 text-lg w-full focus:border-blue-500 outline-none"
           />
           <Button
             type="submit"
@@ -54,7 +65,7 @@ const PageHeader = () => {
         </div>
         <Button
           type="button"
-          className="flex-shrink-0 rounded-full w-10 h-10 flex items-center justify-center p-2.5 bg-neutral-200 hover:bg-neutral-300 transition-all duration-75 ease-in-out"
+          className="flex-shrink-0 rounded-full w-10 h-10 flex items-center justify-center p-2.5 bg-neutral-300 hover:bg-neutral-300 transition-all duration-75 ease-in-out dark:bg-slate-600 dark:hover:bg-slate-700"
         >
           <Mic />
         </Button>
@@ -67,21 +78,27 @@ const PageHeader = () => {
       >
         <Button
           onClick={() => setShowFullWidthSearch(true)}
-          className="md:hidden hover:bg-neutral-300 rounded-full md:w-10 md:h-10 w-8 h-8  flex items-center justify-center md:p-2.5 transition-[hover] duration-200 ease-in-out"
+          className="md:hidden hover:bg-neutral-300  rounded-full md:w-10 md:h-10 w-8 h-8  flex items-center justify-center md:p-2.5 transition-[hover] duration-200 ease-in-out"
         >
           <Search />
         </Button>
-        <Button className="md:hidden hover:bg-neutral-300 rounded-full md:w-10 md:h-10 w-8 h-8 flex items-center justify-center md:p-2.5 transition-all duration-75 ease-in-out">
+        <Button className="md:hidden hover:bg-neutral-300  rounded-full md:w-10 md:h-10 w-8 h-8 flex items-center justify-center md:p-2.5 transition-all duration-75 ease-in-out  dark:hover:bg-slate-700">
           <Mic />
         </Button>
-        <Button className="hover:bg-neutral-300 rounded-full md:w-10 md:h-10 w-8 h-8 flex items-center justify-center md:p-2.5 transition-all duration-75 ease-in-out">
+        <Button className="hover:bg-neutral-300  rounded-full md:w-10 md:h-10 w-8 h-8 flex items-center justify-center md:p-2.5 transition-all duration-75 ease-in-out  dark:hover:bg-slate-700">
           <Upload />
         </Button>
-        <Button className="hover:bg-neutral-300 rounded-full md:w-10 md:h-10 w-8 h-8 flex items-center justify-center md:p-2.5 transition-all duration-75 ease-in-out">
+        <Button className="hover:bg-neutral-300  rounded-full md:w-10 md:h-10 w-8 h-8 flex items-center justify-center md:p-2.5 transition-all duration-75 ease-in-out  dark:hover:bg-slate-700">
           <Bell />
         </Button>
-        <Button className="hover:bg-neutral-300 rounded-full md:w-10 md:h-10 w-8 h-8 flex items-center justify-center md:p-2.5 transition-[bg] duration-200 ease-in-out">
+        <Button className="hover:bg-neutral-300  rounded-full md:w-10 md:h-10 w-8 h-8 flex items-center justify-center md:p-2.5 transition-[bg] duration-200 ease-in-out  dark:hover:bg-slate-700">
           <User />
+        </Button>
+        <Button
+          onClick={toggleTheme}
+          className="hover:bg-neutral-300  rounded-full md:w-10 md:h-10 w-8 h-8 flex items-center justify-center md:p-2.5 transition-[bg] duration-200 ease-in-out  dark:hover:bg-slate-700"
+        >
+          <Sun />
         </Button>
       </div>
     </div>
@@ -98,7 +115,7 @@ export function PageHeaderFirstSectin({ hidden = false }) {
       <button
         className="hover:bg-neutral-300 
       rounded-full w-10 h-10 flex items-center justify-center p-2.5
-      transition-all duration-75 ease-in-out
+      transition-all duration-75 ease-in-out  dark:hover:bg-slate-700
       "
       >
         <Menu />

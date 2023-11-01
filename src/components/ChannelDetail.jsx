@@ -31,7 +31,9 @@ const ChannelDetail = () => {
             <img
               src={ChannelDetail?.avatar?.thumbnails[0].url}
               alt={ChannelDetail?.title}
-              className="w-full object-cover"
+              className="bg-cover"
+              width="100%"
+              height="100%"
             />
           </div>
           <div className="flex flex-col items-start px-5 gap-2">

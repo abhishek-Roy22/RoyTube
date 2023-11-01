@@ -22,6 +22,14 @@
   @apply bg-neutral-500;
 }
 
+.dark-theme {
+  @apply bg-slate-900 text-neutral-500;
+}
+
+.light-theme {
+  @apply bg-neutral-200 text-neutral-800;
+}
+
 .react-player {
   height: 77vh !important;
 }

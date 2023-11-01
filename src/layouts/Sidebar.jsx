@@ -26,6 +26,7 @@ import { PageHeaderFirstSectin } from './PageHeader';
 import Button from '../components/Button';
 import { playlists, subscriptions } from '../data/sidebar';
 import { Link } from 'react-router-dom';
+import { useTheme } from '../context/ThemeContext';
 
 const Sidebar = () => {
   return (
@@ -120,10 +121,13 @@ const Sidebar = () => {
 export default Sidebar;
 
 function SmallSidebarItem({ Icon, title, url }) {
+  const { theme } = useTheme();
   return (
     <Link
       to={'/'}
-      className="py-4 px-1 flex flex-col items-center rounded-lg gap-1 hover:bg-neutral-300  w-10 h-10 justify-center p-2.5 transition-all duration-75 ease-in-out"
+      className={`py-4 px-1 flex flex-col items-center rounded-lg gap-1 ${
+        theme === 'light' ? 'hover:bg-neutral-300' : 'hover:bg-slate-500'
+      } w-10 h-10 justify-center p-2.5 transition-all duration-75 ease-in-out`}
     >
       <Icon className="w-6 h-6" />
       <div className="text-sm">{title}</div>
@@ -144,6 +148,8 @@ function LargeSidebarSection({
     : childrenArray.slice(0, visibleItemCount);
   const ButtonIcon = isExpanded ? ChevronUp : ChevronDown;
 
+  const { theme } = useTheme();
+
   return (
     <div>
       {title && <div className="ml-4 mt-2 text-lg mb-1">{title}</div>}
@@ -151,7 +157,9 @@ function LargeSidebarSection({
       {showExpandButton && (
         <Button
           onClick={() => setIsExpanded((prev) => !prev)}
-          className="w-full flex items-center rounded-lg gap-4 p-3 hover:bg-neutral-300 transition-all duration-75 ease-in-out"
+          className={`w-full flex items-center rounded-lg gap-4 p-3 ${
+            theme === 'light' ? 'hover:bg-neutral-300' : 'hover:bg-slate-500'
+          }  transition-all duration-75 ease-in-out`}
         >
           <ButtonIcon className="w-6 h-6" />
           <div>{isExpanded ? 'Show Less' : 'Show More'}</div>
@@ -162,10 +170,13 @@ function LargeSidebarSection({
 }
 
 function LargeSidebarItem({ Icon, title, url, isActive = false }) {
+  const { theme } = useTheme();
   return (
     <Link
       to={'/'}
-      className={`w-full flex items-center rounded-lg gap-4 p-3 hover:bg-neutral-300 transition-all duration-75 ease-in-out ${
+      className={`w-full flex items-center rounded-lg gap-4 p-3 ${
+        theme === 'light' ? 'hover:bg-neutral-300' : 'hover:bg-slate-500'
+      }  transition-all duration-75 ease-in-out ${
         isActive ? 'font-bold bg-neutral-100 hover:bg-neutral-300' : undefined
       }`}
     >
