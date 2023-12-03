@@ -48,9 +48,14 @@ const ChannelDetail = () => {
           </div>
         </div>
         <hr
-          style={{ height: '1px', backgroundColor: 'gray', border: 'none' }}
+          style={{
+            height: '1px',
+            backgroundColor: 'gray',
+            border: 'none',
+            marginBottom: '10px',
+          }}
         />
-        <div className="grid gap-4 grid-cols-[repeat(auto-fill,minmax(300px,1fr))] mt-3">
+        <div className="grid gap-4 grid-cols-[repeat(auto-fill,minmax(300px,1fr))]">
           {videos &&
             videos?.map((video, i) => <VideoGridItem key={i} video={video} />)}
         </div>

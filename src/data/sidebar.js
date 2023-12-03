@@ -1,5 +1,3 @@
-import { Clock, History, Library, ListVideo, PlaySquare } from 'lucide-react';
-
 export const subscriptions = [
   {
     channelName: 'Fireship',
