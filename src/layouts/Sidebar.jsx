@@ -39,7 +39,7 @@ const categories = [
 const Sidebar = () => {
   return (
     <>
-      <aside className="w-56 h-screen hidden lg:sticky absolute top-20 overflow-y-auto scrollbar-hidden pb-4 flex-col gap-2 px-2 lg:flex lg:ml-4 pb-10">
+      <aside className="w-56 h-screen hidden lg:sticky absolute top-20 overflow-y-auto scrollbar-hidden flex-col gap-2 px-2 lg:flex lg:ml-4 pb-10">
         {categories?.map((caterory) => (
           <div
             key={caterory.name}
