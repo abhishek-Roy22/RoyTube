@@ -43,7 +43,7 @@ const Sidebar = () => {
         {categories?.map((caterory) => (
           <div
             key={caterory.name}
-            className="flex gap-5 pt-2 pb-2 pl-2 rounded-md hover:bg-white cursor-pointer"
+            className="flex gap-5 pt-2 pb-2 pl-2 rounded-md first:bg-white hover:bg-white cursor-pointer"
           >
             {caterory.icon}
             <p className="font-bold">{caterory.name}</p>
