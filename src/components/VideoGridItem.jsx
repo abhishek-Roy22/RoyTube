@@ -4,7 +4,7 @@ const VideoGridItem = ({ video }) => {
   return (
     <div className="flex flex-col gap-2">
       <Link
-        to={`/video/${video?.videoId || video?.id.videoId}`}
+        to={`/video/${video?.videoId || video?.id?.videoId}`}
         className="relative aspect-video"
       >
         <img

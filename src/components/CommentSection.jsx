@@ -6,7 +6,7 @@ const CommentSection = ({ comments, profileUrl }) => {
           <div className="w-full p-4" key={i}>
             <div className="flex gap-4">
               <img
-                src={profileUrl[0][0]}
+                src={profileUrl}
                 alt="profile"
                 className="w-12 h-12 rounded-full bg-cover"
               />

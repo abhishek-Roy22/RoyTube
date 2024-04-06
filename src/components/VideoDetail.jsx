@@ -14,7 +14,7 @@ const VideoDetail = () => {
 
   const commentLength = comments?.comments?.length;
   const profileUrl = comments?.comments?.map((c) =>
-    c.authorThumbnails.map((thumbnail) => thumbnail.url)
+    c?.authorThumbnails?.map((thumbnail) => thumbnail.url)
   );
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const VideoDetail = () => {
     fetchFromAPI(`video?id=${id}`).then((data) => setVideoInfo(data));
 
     fetchFromNextAPI(`search?relatedToVideoId=${id}`).then((data) =>
-      setVideos(data.items)
+    setVideos(data?.items)
     );
   }, [id]);
 
@@ -53,11 +53,11 @@ const VideoDetail = () => {
             <h2 className="text-2xl font-bold text-neutral-500">
               {commentLength} Comments
             </h2>
-            <CommentSection
+            {comments && <CommentSection
               comments={comments}
               profileUrl={profileUrl}
               visibleItemCount={5}
-            />
+            />}
           </div>
         </div>
         <div className="hidden lg:block w-96 overflow-y-auto px-2 scrollbar-hidden">
